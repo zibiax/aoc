@@ -1,11 +1,13 @@
-def read_input(text):
+from timeit import default_timer as timer
+
+def read_input(input):
     with open(f'{input}.txt', 'r') as f:
         data = f.read().splitlines()
     return data
 
 def decode_integers():
     sum_of_digits = 0
-    for i in read_input('text'):
+    for i in read_input('input'):
         chars = list(i)
         first_digit = next((x for x in chars if x.isdigit()), None)
         second_digit = next((x for x in chars[::-1] if x.isdigit()), None)
@@ -49,7 +51,7 @@ def find_substrings_with_digits(string):
 def decode_integers_from_words():
     second_sum_of_digits = 0
 
-    for i in read_input('text'):
+    for i in read_input('input'):
         string = replace_number_with_word(i)
         substring = find_substrings_with_digits(string)
 
@@ -62,5 +64,11 @@ def decode_integers_from_words():
     return second_sum_of_digits
 
 if __name__ == "__main__":
+    start = timer()
     print("Answer to 1: {}".format(decode_integers()))
+    end = timer()
+    print(end - start)
+    start = timer()
     print("Answer to 2: {}".format(decode_integers_from_words()))
+    end = timer()
+    print(end - start)
