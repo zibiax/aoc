@@ -1,4 +1,4 @@
-# Advent of code 2023
+# :christmas_tree: Advent of code 2023 :christmas_tree:
 
 ##### Days finished so far:
 
