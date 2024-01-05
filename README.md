@@ -1,6 +1,6 @@
-# Advent of code 2023
+# :christmas_tree: Advent of code 2023 :christmas_tree:
 
-##### Days finished:
+##### Days finished so far:
 
 - [x] Day 1
 - [x] Day 2
