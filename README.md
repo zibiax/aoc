@@ -2,7 +2,7 @@
 
 Link to [AOC](https://adventofcode.com/)
 
-##### Days finished so far:
+###### Days finished so far:
 
 - [x] Day 1
 - [x] Day 2
