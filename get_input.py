@@ -13,9 +13,9 @@ import requests
 # 3) Refresh
 # 5) Click https://adventofcode.com under "Cookies"
 # 6) Grab the value for session. Fill it in.
-SESSION = '<FILL_ME_IN>'
+SESSION = '53616c7465645f5fd62d8611b0d602f15194995b6f4b771fb0f3127c2c04f859e0419260d08133204b442bbc606f692e3d8402bcf52881f3ab2f266526216356'
 
-useragent = 'https://github.com/zibiax/aoc2023/get_input.py by martin.evenbom@gmail.com'
+useragent = 'https://github.com/zibiax/aoc2023/blob/main/get_input.py by martin.evenbom@gmail.com'
 parser = argparse.ArgumentParser(description='Read input')
 parser.add_argument('--year', type=int, default=2023)
 parser.add_argument('--day', type=int, default=1)
