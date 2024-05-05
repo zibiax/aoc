@@ -1,6 +1,6 @@
 # :christmas_tree: Advent of code 2023 :christmas_tree:
 
-Link to [AOC](https://adventofcode.com/)
+Link to [Advent of Code](https://adventofcode.com/)
 
 ###### Days finished so far:
 
