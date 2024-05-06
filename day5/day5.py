@@ -42,21 +42,28 @@ for block in blocks:
     seeds = new
 
 
-print(min(seeds)[0])
+score2 = min(seeds)[0]
 
+seed, *block = data.split("\n\n")
 
-'''
-    for x in seeds:
-        for a, b, c in ranges:
+seed = list(map(int, seed.split(":")[1].split()))
+
+for blo in block:
+    rang = []
+    for line in blo.splitlines()[1:]:
+        rang.append(list(map(int, line.split())))
+    new = []
+    for x in seed:
+        for a, b, c in rang:
             if b <= x < b + c:
                 new.append(x - b + a)
                 break
-        
         else:
             new.append(x)
-    seeds = new
 
-score = min(seeds)
+    seed = new
+
+score = min(seed)
 
 if __name__ == "__main__":
     start = timer()
@@ -66,4 +73,4 @@ if __name__ == "__main__":
     start = timer()
     print("The result to 2 is: {}".format(score2))
     end = timer()
-    print(end - start)'''
+    print(end - start)
