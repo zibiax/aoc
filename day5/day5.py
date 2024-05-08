@@ -10,6 +10,7 @@ def read_input(input):
 score = 0
 
 data = read_input('input')
+
 inputs, *blocks = data.split("\n\n")
 
 inputs = list(map(int, inputs.split(":")[1].split()))
@@ -41,7 +42,6 @@ for block in blocks:
             new.append((s, e))
     seeds = new
 
-
 score2 = min(seeds)[0]
 
 seed, *block = data.split("\n\n")
@@ -62,9 +62,10 @@ for blo in block:
             new.append(x)
 
     seed = new
-
+print(seed)
 score = min(seed)
-
+print(score)
+'''
 if __name__ == "__main__":
     start = timer()
     print("The result to 1 is: {}".format(score))
@@ -73,4 +74,4 @@ if __name__ == "__main__":
     start = timer()
     print("The result to 2 is: {}".format(score2))
     end = timer()
-    print(end - start)
+    print(end - start)'''
