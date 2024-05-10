@@ -26,20 +26,28 @@ def calculate_ways(time, distance):
             counter += 1
     return counter
 
-#counter = calculate_ways(int(time), int(distance))
-start = timer()
-total_counter = 1
-for i in range(4):
-    counter = calculate_ways(int(time[i]), int(distance[i]))
-    total_counter *= counter
-total_counter -= 1
-print(total_counter)
-end = timer()
-print(end - start)
-time, distance = data.split("\n")
-time = time.split(":")[1].replace(" ", "")
-distance = distance.split(":")[1].replace(" ", "")
-start = timer()
-print(calculate_ways(int(time), int(distance)))
-end = timer()
-print(end - start)
+
+
+
+if __name__ == "__main__":
+    start = timer()
+    total_counter = 1
+    for i in range(len(time)):
+        counter = calculate_ways(int(time[i]), int(distance[i]))
+        total_counter *= counter
+    total_counter -= 1
+    print(total_counter)
+    end = timer()
+    print(end - start)
+    
+    # part 2
+
+    time, distance = data.split("\n")
+    time = time.split(":")[1].replace(" ", "")
+    distance = distance.split(":")[1].replace(" ", "")
+    start = timer()
+    print(calculate_ways(int(time), int(distance)))
+    end = timer()
+    print(end - start)
+
+ 
