@@ -46,3 +46,9 @@ for rank, (hand, bid) in enumerate(plays, 1):
 
     
 print(total)
+
+if __name__ == '__main__':
+    start = timer()
+    print(total)
+    end = timer()
+    print(end - start)
