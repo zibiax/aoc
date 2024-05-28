@@ -8,9 +8,9 @@ def read_input(input):
 
 data = read_input('input')
 
-letter_map = { 'T': 'A', 'J': 'B', 'Q': 'C', 'K': 'D', 'A': 'E' }
+letter_map = { 'T': 'A', 'J': '!', 'Q': 'C', 'K': 'D', 'A': 'E' }
 
-def classify(hand):
+def score(hand):
     counts = [hand.count(card) for card in hand]
     
     if 5 in counts:
@@ -31,6 +31,18 @@ def classify(hand):
 def strength(hand):
     return (classify(hand), [letter_map.get(card, card) for card in hand])
 
+def classify(hand):
+    return max(map(score, replacement(hand)))
+
+def replacement(hand):
+    if hand == "":
+        return [""]
+
+    return [x + y
+            for x in ("23456789TQKA" if hand[0] == "J" else hand[0]) 
+            for y in replacement(hand[1:])
+            ]
+
 
 plays= []
 
@@ -44,8 +56,9 @@ plays.sort(key = lambda play: strength(play[0]))
 for rank, (hand, bid) in enumerate(plays, 1):
     total += rank * bid
 
-    
-print(total)
+
+
+
 
 if __name__ == '__main__':
     start = timer()
