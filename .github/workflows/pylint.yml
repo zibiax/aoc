@@ -20,4 +20,4 @@ jobs:
         pip install ruff
     - name: Analyzing the code with Ruff
       run: |
-        ruff $(git ls-files '*.py')
+        ruff check $(git ls-files '*.py')
