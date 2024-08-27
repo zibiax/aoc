@@ -1,5 +1,3 @@
-from timeit import default_timer as timer
-from collections import defaultdict
 
 
 def read_input(input):
