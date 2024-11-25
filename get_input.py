@@ -17,7 +17,7 @@ SESSION = 'insert session cookie'
 
 useragent = 'https://github.com/zibiax/aoc2023/blob/2023/get_input.py by martin.evenbom@gmail.com'
 parser = argparse.ArgumentParser(description='Read input')
-parser.add_argument('--year', type=int, default=2023)
+parser.add_argument('--year', type=int, default=2024)
 parser.add_argument('--day', type=int, default=1)
 args = parser.parse_args()
 
