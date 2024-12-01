@@ -1,3 +1,6 @@
+from os import times
+
+
 def input(filename):
     with open(filename, 'r') as f:
         input = f.read().splitlines()
@@ -27,6 +30,36 @@ def first(input):
         total += abs(l1 - r1)
     return total
 
+
+def second(input):
+
+    total = 0
+    left = []
+    right = []
+
+    for line in input:
+        l1, r1 = map(int, line.split())
+
+        left.append(l1)
+        right.append(r1)
+
+    left.sort()
+    right.sort()
+
+    for i in left:
+        times = 0
+
+        for x in right:
+            if i == x:
+                times += 1
+
+        score = i * times
+        total += score
+
+    return total
+    
+
 if __name__ == "__main__":
     data = input('input.txt')
     print(first(data))
+    print(second(data))
