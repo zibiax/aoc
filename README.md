@@ -4,7 +4,7 @@ Link to [Advent of Code](https://adventofcode.com/)
 
 ###### Days finished so far:
 
-- [ ] Day 1
+- [x] Day 1
 - [ ] Day 2
 - [ ] Day 3
 - [ ] Day 4
