@@ -1,4 +1,4 @@
-from os import times
+from timeit import default_timer as timer
 
 
 def input(filename):
@@ -61,5 +61,11 @@ def second(input):
 
 if __name__ == "__main__":
     data = input('input.txt')
+    start = timer()
     print(first(data))
+    end = timer()
+    print(end - start)
+    start = timer()
     print(second(data))
+    end = timer()
+    print(end - start)
