@@ -7,24 +7,24 @@ def input(filename):
 def first(input):
 
     total = 0
-    l = []
-    r = []
+    left = []
+    right = []
 
     for line in input:
-        left, right = map(int, line.split())
+        l1, r1 = map(int, line.split())
 
-        l.append(left)
-        r.append(right)
+        left.append(l1)
+        right.append(r1)
 
-    l.sort()
-    r.sort()
+    left.sort()
+    right.sort()
 
     
-    while l and r:
-        left = l.pop(0)
-        right = r.pop(0)
+    while left and right:
+        l1 = left.pop(0)
+        r1 = right.pop(0)
 
-        total += abs(left - right)
+        total += abs(l1 - r1)
     return total
 
 if __name__ == "__main__":
