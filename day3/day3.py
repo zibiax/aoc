@@ -3,7 +3,7 @@ from timeit import default_timer as timer
 
 def input(filename):
     with open(filename, 'r') as f:
-        data = f.read()
+        data = f.read().strip()
     return data
 
 def first(data):
@@ -33,6 +33,31 @@ def second(data):
             
     return product
 
+def second_test(data):
+    product = 0
+    enabled = True
+
+    for i in range(len(data)):
+        if data[i:i+4] == 'do()':
+            enabled = True
+            
+        if data[i:i+len("don't()")] == "don't()":
+                enabled = False
+
+        if data[i:i+4] == 'mul(':
+            j = i+4
+            while data[j] !=')':
+                j += 1
+            try:
+                num1, num2 = map(int, r.findall('\d+', data[i:j+1]))
+                if data[j-1] not in ['0','1','2','3','4','5','6','7','8','9']:
+                    continue
+                if enabled:
+                    product += num1*num2
+            except:
+                pass
+    return product
+
 def main():
     data = input('input.txt')
     start = timer()
@@ -41,6 +66,10 @@ def main():
     print(end - start)
     start = timer()
     print(second(data))
+    end = timer()
+    print(end - start)
+    start = timer()
+    print(second_test(data))
     end = timer()
     print(end - start)
         
