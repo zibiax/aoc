@@ -26,7 +26,7 @@ def first(data, pattern):
             vertical = ''.join(lines[i + k][j] for k in range(pattern_len))
             if vertical == pattern:
                 times += 1
-            if vertical[::-1] == pattern:  # backwards
+            if vertical[::-1] == pattern:
                 times += 1
                 
     for i in range(rows - pattern_len + 1):
@@ -34,7 +34,7 @@ def first(data, pattern):
             diagonal = ''.join(lines[i + k][j + k] for k in range(pattern_len))
             if diagonal == pattern:
                 times += 1
-            if diagonal[::-1] == pattern:  # backwards
+            if diagonal[::-1] == pattern:
                 times += 1
                 
     for i in range(rows - pattern_len + 1):
@@ -42,18 +42,56 @@ def first(data, pattern):
             diagonal = ''.join(lines[i + k][j - k] for k in range(pattern_len))
             if diagonal == pattern:
                 times += 1
-            if diagonal[::-1] == pattern:  # backwards
+            if diagonal[::-1] == pattern:
                 times += 1
     
 
 
     return times
 
+def second(data, pattern):
+
+    times = 0
+
+    lines = data.split('\n')
+    rows, cols = len(lines), len(lines[0])
+
+
+    for i in range(rows-2):
+       for j in range(cols-2):
+           top_left = lines[i][j]
+           middle = lines[i+1][j+1]
+           bottom_right = lines[i+2][j+2]
+           bottom_left = lines[i+2][j]
+           top_right = lines[i][j+2]
+           
+           if middle == 'A':
+               patterns = [
+                   (top_left == 'M' and bottom_right == 'S' and 
+                    bottom_left == 'M' and top_right == 'S'),
+                   (top_left == 'M' and bottom_right == 'S' and 
+                    bottom_left == 'S' and top_right == 'M'),
+                   (top_left == 'S' and bottom_right == 'M' and 
+                    bottom_left == 'M' and top_right == 'S'),
+                   (top_left == 'S' and bottom_right == 'M' and 
+                    bottom_left == 'S' and top_right == 'M')
+               ]
+               times += sum(1 for p in patterns if p)
+               
+    return times
+
+
 
 def main():
     data = input('input.txt')
-
-    print(first(data, 'XMAS'))
+    start = timer()
+    print(first(data, 'xmas'))
+    end = timer()
+    print(end-start)
+    start = timer()
+    print(second(data, 'mas'))
+    end = timer()
+    print(end-start)
 
 
 if __name__ == "__main__":
