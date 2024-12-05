@@ -54,7 +54,7 @@ def second_test(data):
                     continue
                 if enabled:
                     product += num1*num2
-            except:
+            except ValueError:
                 pass
     return product
 
