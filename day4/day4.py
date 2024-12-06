@@ -7,7 +7,7 @@ def input(filename):
 
 def first(data, pattern):
 
-    times = 0
+    ans = 0
 
     lines = data.split('\n')
     rows, cols = len(lines), len(lines[0])
@@ -17,41 +17,41 @@ def first(data, pattern):
     for line in lines:
         for i in range(cols - pattern_len + 1):
             if line[i:i+pattern_len] == pattern:
-                times += 1
+                ans += 1
             if line[i:i+pattern_len][::-1] == pattern:
-                times += 1
+                ans += 1
 
     for j in range(cols):
         for i in range(rows - pattern_len + 1):
             vertical = ''.join(lines[i + k][j] for k in range(pattern_len))
             if vertical == pattern:
-                times += 1
+                ans += 1
             if vertical[::-1] == pattern:
-                times += 1
+                ans += 1
                 
     for i in range(rows - pattern_len + 1):
         for j in range(cols - pattern_len + 1):
             diagonal = ''.join(lines[i + k][j + k] for k in range(pattern_len))
             if diagonal == pattern:
-                times += 1
+                ans += 1
             if diagonal[::-1] == pattern:
-                times += 1
+                ans += 1
                 
     for i in range(rows - pattern_len + 1):
         for j in range(pattern_len - 1, cols):
             diagonal = ''.join(lines[i + k][j - k] for k in range(pattern_len))
             if diagonal == pattern:
-                times += 1
+                ans += 1
             if diagonal[::-1] == pattern:
-                times += 1
+                ans += 1
     
 
 
-    return times
+    return ans
 
 def second(data, pattern):
 
-    times = 0
+    ans = 0
 
     lines = data.split('\n')
     rows, cols = len(lines), len(lines[0])
@@ -76,9 +76,9 @@ def second(data, pattern):
                    (top_left == 'S' and bottom_right == 'M' and 
                     bottom_left == 'S' and top_right == 'M')
                ]
-               times += sum(1 for p in patterns if p)
+               ans += sum(1 for p in patterns if p)
                
-    return times
+    return ans
 
 
 
